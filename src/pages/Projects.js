@@ -1,16 +1,21 @@
 import { useState } from "react"
-import Project from "./Project"
+import { Link } from "react-router-dom"
 import Search from "../components/Search"
 
 const Projects = (props) => {
 
     return (
         <>
-            <Search/>
+            {/* search component */}
+            <Search />
 
             {props.projects.map((project) => {
                 return (
-                    <Project key={project.id} name={project.name} city={project.city} launch={project.launch} />
+                    <div className="projectsDiv">
+                        <Link to={`/places/project/${project.id}/`}>
+                            <h1>{project.name}</h1>
+                        </Link>
+                    </div>
                 )
             })}
         </>

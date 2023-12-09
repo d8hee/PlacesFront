@@ -43,13 +43,11 @@ const Main = () => {
    
     return(
         <div>
-            <h1>Home Page</h1>
-
       <Routes>
         <Route path="/" element={<Projects projects={projects}/>} />
-        <Route path="/places/projects/:id" element={<Project projects={projects} />} />
+        <Route path="/places/project/:id" element={<Project projects={projects} listings={listings} />} />
         <Route path="/places/listings" element={<Listings listings={listings}/>} />
-        <Route path="/places/listings/:id" element={<Listing listings={listings}/>} />
+        <Route path="/places/listings/:id" element={<Listing listings={listings} builders={builders}/>} />
         <Route path="/places/builders" element={<Builders builders={builders}/>} />
 
         <Route path="/places/newproject" element={<NewProject />} />
