@@ -33,7 +33,7 @@ const Project = (props) => {
                     )
                 }
             })}
-            <Link to="/">Back</Link>
+            <Link to="/places">Back Home</Link>
 
         </div>
     )

@@ -5,7 +5,7 @@ const Header = (props) => {
     return (
         <div>
             <nav className="headerNav">
-                <Link to="/"><div>HOME</div></Link>
+                <Link to="/places"><div>HOME</div></Link>
                 {/* <Link to="/places/builders"><div>BUILDERS</div></Link> */}
                 {/* <Link to="/places/projects"><div>PROJECTS</div></Link> */}
                 <Link to="/places/listings"><div>LISTINGS</div></Link>

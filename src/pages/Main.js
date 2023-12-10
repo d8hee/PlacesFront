@@ -61,6 +61,26 @@ const createListing = async (listing) => {
   getListings();
 };
 
+// function to update/edit a listing
+const updateListing = async (listing, id) => {
+  await fetch(URL + "places/listings/" + id, {
+    method: "put",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(listing),
+  })
+  getListings()
+}
+
+//function to delete a listing
+const deleteListing = async (id) => {
+  await fetch(URL + "places/listings/" + id, {
+    method: "delete",
+  })
+  getListings()
+}
+
 // useEffect
   useEffect(()=>{
     getBuilders()
@@ -71,14 +91,13 @@ const createListing = async (listing) => {
     return(
         <div>
       <Routes>
-        <Route path="/" element={<Projects projects={projects}/>} />
+        <Route path="/places" element={<Projects projects={projects}/>} />
         <Route path="/places/project/:id" element={<Project projects={projects} listings={listings}  />} />
         <Route path="/places/listings" element={<Listings listings={listings}/>} />
-        <Route path="/places/listings/:id" element={<Listing listings={listings} builders={builders}/>} />
+        <Route path="/places/listings/:id" element={<Listing listings={listings} builders={builders} updateListing={updateListing} deleteListing={deleteListing}/>} />
         <Route path="/places/builders" element={<Builders builders={builders}/>} />
 
         <Route path="/places/newproject" element={<NewProject projects={projects} builders={builders} createProject={createProject}/>} />
-
         <Route path="/places/newlisting" element={<NewListing listings={listings} createListing={createListing}/>} />
       </Routes>
         </div>
