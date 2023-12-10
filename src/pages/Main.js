@@ -13,7 +13,7 @@ import Projects from './Projects';
 const URL = "https://placesappbackend-12a451d9f048.herokuapp.com/"
 
 const Main = () => {
-    // State for data 
+  // State for data 
   const [builders, setBuilders] = useState([])
   const [projects, setProjects] = useState([])
   const [listings, setListings] = useState([])
@@ -34,6 +34,33 @@ const Main = () => {
     const data = await response.json()
     setListings(data)
   }
+
+// function to create new project
+const createProject = async (project) => {
+  await fetch(URL + "places/projects", {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(project),
+  });
+  // updates project list
+  getProjects();
+};
+
+// function to create new listing
+const createListing = async (listing) => {
+  await fetch(URL + "places/listings", {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(listing),
+  });
+  // updates project list
+  getListings();
+};
+
 // useEffect
   useEffect(()=>{
     getBuilders()
@@ -45,13 +72,14 @@ const Main = () => {
         <div>
       <Routes>
         <Route path="/" element={<Projects projects={projects}/>} />
-        <Route path="/places/project/:id" element={<Project projects={projects} listings={listings} />} />
+        <Route path="/places/project/:id" element={<Project projects={projects} listings={listings}  />} />
         <Route path="/places/listings" element={<Listings listings={listings}/>} />
         <Route path="/places/listings/:id" element={<Listing listings={listings} builders={builders}/>} />
         <Route path="/places/builders" element={<Builders builders={builders}/>} />
 
-        <Route path="/places/newproject" element={<NewProject />} />
-        <Route path="/places/newlisting" element={<NewListing />} />
+        <Route path="/places/newproject" element={<NewProject projects={projects} builders={builders} createProject={createProject}/>} />
+
+        <Route path="/places/newlisting" element={<NewListing listings={listings} createListing={createListing}/>} />
       </Routes>
         </div>
     )

@@ -11,7 +11,7 @@ const Projects = (props) => {
 
             {props.projects.map((project) => {
                 return (
-                    <div className="projectsDiv">
+                    <div key={project.id} className="projectsDiv">
                         <Link to={`/places/project/${project.id}/`}>
                             <h1>{project.name}</h1>
                         </Link>
