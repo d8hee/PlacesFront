@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 
 import Builders from './Builders';
+import EditListing from './EditListing';
 import Listing from './Listing';
 import Listings from "./Listings"
 import NewProject from "./NewProject"
@@ -62,8 +63,8 @@ const createListing = async (listing) => {
 };
 
 // function to update/edit a listing
-const updateListing = async (listing, id) => {
-  await fetch(URL + "places/listings/" + id, {
+const updateListing = async (listing) => {
+  await fetch(URL + "places/listings/" + listing.id, {
     method: "put",
     headers: {
       "Content-Type": "application/json",
@@ -94,11 +95,11 @@ const deleteListing = async (id) => {
         <Route path="/places" element={<Projects projects={projects}/>} />
         <Route path="/places/project/:id" element={<Project projects={projects} listings={listings}  />} />
         <Route path="/places/listings" element={<Listings listings={listings}/>} />
+        {/* <Route path="/places/listings/:id/edit" element={<EditListing listings={listings} builders={builders} updateListing={updateListing}/>} /> */}
         <Route path="/places/listings/:id" element={<Listing listings={listings} builders={builders} updateListing={updateListing} deleteListing={deleteListing}/>} />
-        <Route path="/places/builders" element={<Builders builders={builders}/>} />
-
         <Route path="/places/newproject" element={<NewProject projects={projects} builders={builders} createProject={createProject}/>} />
         <Route path="/places/newlisting" element={<NewListing listings={listings} createListing={createListing}/>} />
+        {/* <Route path="/places/builders" element={<Builders builders={builders}/>} /> */}
       </Routes>
         </div>
     )

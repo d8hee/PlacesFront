@@ -1,14 +1,6 @@
-import { useState } from "react"
-import { useParams, useNavigate } from "react-router"
 
 const EditListing = () => {
-    return(
-        <div>
-
-
-
-        </div>
-    )
+    return 
 }
 
 export default EditListing
