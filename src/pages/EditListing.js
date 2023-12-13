@@ -1,6 +1,10 @@
 
 const EditListing = () => {
-    return 
+    return (
+        <div>
+            
+        </div>
+    )
 }
 
 export default EditListing

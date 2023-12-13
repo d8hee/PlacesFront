@@ -1,6 +1,6 @@
 const Search = (props) => {
     return(
-        <div>
+        <div className="searchBar">
             Search Bar Component
         </div>
     )

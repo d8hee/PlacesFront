@@ -11,19 +11,20 @@ const Project = (props) => {
     // edit project form to show on this page 
 
     return (
-        <div className="projectDiv">
+        <div>
             <h1>{project.name}</h1>
             <h3>{project.city}</h3>
-            <h3>{project.launch}</h3>
-            Project show Page, showing just 1 project
+            <h3>Sales Start On: {project.launch}</h3>
 
-            <h2>Models available at {project.name}</h2>
+            <h1>Models available at {project.name}</h1>
 
             {props.listings.map((listing) => {
                 // if the project id matches the listing's projectId, show listing:
                 if (project.id === listing.projectId && listing.public === true ) {
                     return (
-                        <div key={listing.id} className="listingsDiv">
+                        <div key={listing.id} 
+                        class="max-w-screen-md bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 "
+                        >
                             <Link to={`/places/listings/${listing.id}`}>
                                 <h4>{listing.modelName}</h4>
                                 <h4>Beds: {listing.bedrooms}</h4>
