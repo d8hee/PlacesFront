@@ -10,7 +10,7 @@ const Header = (props) => {
                 <Link to="/places">
                 <h1>Places App</h1>
                 <h4>The place to find your new home.</h4>
-                {/* <Lottie animationData={animateMap} loop={true} /> */}
+                <Lottie animationData={animateMap} loop={true} />
                 </Link>
             </div>
             <div class="px-10 py-10">
