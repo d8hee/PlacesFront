@@ -88,11 +88,11 @@ const deleteListing = async (id) => {
     getProjects()
     getListings()
   },[]) 
-   
+  
     return(
         <div>
       <Routes>
-        <Route path="/places" element={<Projects projects={projects}/>} />
+        <Route path="/places" element={<Projects projects={projects} key={projects.id}/>} />
         <Route path="/places/project/:id" element={<Project projects={projects} listings={listings}  />} />
         <Route path="/places/listings" element={<Listings listings={listings}/>} />
         {/* <Route path="/places/listings/:id/edit" element={<EditListing listings={listings} builders={builders} updateListing={updateListing}/>} /> */}

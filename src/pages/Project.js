@@ -17,7 +17,9 @@ const Project = (props) => {
             <h3>Sales Start On: {project.launch}</h3>
 
             <h1>Models available at {project.name}</h1>
-
+            <button>
+                <Link to="/places/newlisting">Create a New Listing</Link>
+            </button>
             {props.listings.map((listing) => {
                 // if the project id matches the listing's projectId, show listing:
                 if (project.id === listing.projectId && listing.public === true ) {
