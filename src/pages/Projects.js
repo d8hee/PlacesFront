@@ -32,6 +32,7 @@ const Projects = (props) => {
                             class="max-w-screen-md bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                             <div  >
                                 <Link to={`/places/project/${project.id}/`}>
+                                <img src={project.image} class="w-96"></img>
                                     <h1>{project.name}</h1>
                                     <h3>Sales Start: {project.launch}</h3>
                                     <h3>{project.city}</h3>

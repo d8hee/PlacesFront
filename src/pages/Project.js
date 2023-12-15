@@ -20,6 +20,11 @@ const Project = (props) => {
             <button>
                 <Link to="/places/newlisting">Create a New Listing</Link>
             </button>
+
+            <button>
+            <Link to={`/places/projects/${id}/edit/`}>Edit This Project</Link>
+            </button>
+
             {props.listings.map((listing) => {
                 // if the project id matches the listing's projectId, show listing:
                 if (project.id === listing.projectId && listing.public === true ) {
@@ -28,6 +33,7 @@ const Project = (props) => {
                         class="max-w-screen-md bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 "
                         >
                             <Link to={`/places/listings/${listing.id}`}>
+                                <img src={listing.image} class="w-96"></img>
                                 <h4>{listing.modelName}</h4>
                                 <h4>Beds: {listing.bedrooms}</h4>
                                 <h4>Baths: {listing.washrooms}</h4>

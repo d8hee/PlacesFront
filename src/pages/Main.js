@@ -10,6 +10,9 @@ import NewListing from './NewListing'
 import Project from './Project';
 import Projects from './Projects';
 
+import EditListing from './EditListing';
+import EditProject from './EditProject';
+
 // api URL outside component so that it does not redeclared w each re-render
 const URL = "https://placesappbackend-12a451d9f048.herokuapp.com/"
 
@@ -62,7 +65,7 @@ const createListing = async (listing) => {
   getListings();
 };
 
-// function to update/edit a listing
+// function to update/edit a LISTING
 const updateListing = async (listing) => {
   await fetch(URL + "places/listings/" + listing.id, {
     method: "put",
@@ -72,6 +75,18 @@ const updateListing = async (listing) => {
     body: JSON.stringify(listing),
   })
   getListings()
+}
+
+// function to update/edit a PROJECT
+const updateProject = async (project) => {
+  await fetch(URL + "places/projects/" + project.id, {
+    method: "put",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(project),
+  })
+  getProjects()
 }
 
 //function to delete a listing
@@ -95,7 +110,12 @@ const deleteListing = async (id) => {
         <Route path="/places" element={<Projects projects={projects} key={projects.id}/>} />
         <Route path="/places/project/:id" element={<Project projects={projects} listings={listings}  />} />
         <Route path="/places/listings" element={<Listings listings={listings}/>} />
-        {/* <Route path="/places/listings/:id/edit" element={<EditListing listings={listings} builders={builders} updateListing={updateListing}/>} /> */}
+
+        {/* Edit LISTING */}
+        <Route path="/places/listings/:id/edit" element={<EditListing listings={listings} projects={projects} builders={builders} updateListing={updateListing}/>} />
+        {/* Edit PROJECT */}
+        <Route path="/places/projects/:id/edit" element={<EditProject listings={listings} projects={projects} builders={builders} updateProject={updateProject}/>} />
+
         <Route path="/places/listings/:id" element={<Listing listings={listings} builders={builders} updateListing={updateListing} deleteListing={deleteListing}/>} />
         <Route path="/places/newproject" element={<NewProject projects={projects} builders={builders} createProject={createProject}/>} />
         <Route path="/places/newlisting" element={<NewListing listings={listings} createListing={createListing}/>} />

@@ -8,11 +8,12 @@ const Header = (props) => {
         <div class="flex flex-row justify-between">
             <div class="px-10 py-8">
                 <Link to="/places">
-                <h1>Places App</h1>
+                <h1 class="">Places App</h1>
                 <h4>The place to find your new home.</h4>
-                <Lottie animationData={animateMap} loop={true} />
+
                 </Link>
             </div>
+            <div ><Lottie animationData={animateMap} loop={true} /></div>
             <div class="px-10 py-10">
                 <Link to="/places" class="px-5">HOME</Link>
                 <Link to="/places/newproject" class="px-5">CREATE A NEW PROJECT</Link>
