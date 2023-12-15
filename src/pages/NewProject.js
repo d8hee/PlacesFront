@@ -29,11 +29,11 @@ const NewProject = (props) => {
 
     return (
         <div >
-            <h1>Create a New Project</h1>
+            <h1 class="font-Inter text-4xl p-8">Create a New Project</h1>
             <form onSubmit={handleSubmit}
                 class="flex flex-col justify-center items-center"
             >
-                <p class="mt-1 text-sm leading-6 text-gray-600">This information will be displayed publicly.</p>
+                <p class="mb-5 text-sm leading-6 text-gray-600">This information will be displayed publicly.</p>
 
                 <label class="block text-sm font-medium leading-6 text-gray-900">
                     Project Name
@@ -84,7 +84,7 @@ const NewProject = (props) => {
                 </label>
                 
                 <input
-                    class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    class="m-5 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                     type="submit" value="Create New Project" />
             </form>
         </div>

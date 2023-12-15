@@ -1,8 +1,12 @@
 .App {
   text-align: center;
+  /* background-image: linear-gradient(120deg, white 30%, #d1bbf9, #c6c7ff, #b5e5ff, white); */
+  background-image: url("https://img.freepik.com/free-vector/white-abstract-background_23-2148810353.jpg?w=1380&t=st=1702672915~exp=1702673515~hmac=07cd993961cd053625c57b54f1c37de916a14f1db1650f72cd012ce7e2fd286b");
+  background-size: cover;
+  background-attachment: fixed;
 }
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -11,7 +15,7 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
 
 .App-header {
   background-color: #282c34;

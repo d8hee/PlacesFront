@@ -36,8 +36,8 @@ const Listing = (props) => {
 
     return (
         <div >
-            <div class="flex flex-col">
-                <h1>{listing.modelName}</h1>
+            <div class="flex flex-col gap-8 items-center">
+                <h1 class="font-Inter text-5xl pt-10">{listing.modelName}</h1>
                 <img src={listing.image} class="w-96"></img>
 
                 <h4>Beds: {listing.bedrooms}</h4>
@@ -45,13 +45,14 @@ const Listing = (props) => {
                 <h4>Parking spaces: {listing.parking}</h4>
             </div>
 
-            <button>
+            <button 
+            class="m-5 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                 <Link to={`/places/listings/${id}/edit/`}>Edit Listing</Link>
             </button>
 
             {/* Delete listing button */}
             <button id='delete' onClick={removeListing}
-                class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                class="m-5 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
                 Delete Listing
             </button>

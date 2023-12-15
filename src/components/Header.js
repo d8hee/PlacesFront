@@ -5,19 +5,20 @@ import animateMap from "../lotties/animateMap.json"
 const Header = (props) => {
 
     return (
-        <div class="flex flex-row justify-between">
-            <div class="px-10 py-8">
-                <Link to="/places">
-                <h1 class="">Places App</h1>
-                <h4>The place to find your new home.</h4>
-
+        // <div class="flex flex-row justify-between sticky top-0 text-bloo ">
+        <div class="sticky top-0 text-bloo flex flex-row justify-between bg-offwhite opacity-90">
+            <div class="px-10  text-left">
+                <Link to="/places" class="flex flex-row justify-start items-center">
+                    <div><h1 class="font-Pacifico text-5xl">Places</h1></div>
+                    <div class="w-24 pt-2"><Lottie animationData={animateMap} loop={true} /></div>
+                    <div><h4 class="font-Pacifico text-lg pt-4">The place to find your new home.</h4></div>
                 </Link>
             </div>
-            <div ><Lottie animationData={animateMap} loop={true} /></div>
-            <div class="px-10 py-10">
-                <Link to="/places" class="px-5">HOME</Link>
-                <Link to="/places/newproject" class="px-5">CREATE A NEW PROJECT</Link>
-                <Link to="/places/newlisting" class="px-5">CREATE A NEW LISTING</Link>
+
+            <div class="font-Inter px-4 pt-8">
+                <Link to="/places" class="px-2">HOME</Link>
+                <Link to="/places/newproject" class="px-2">CREATE A NEW PROJECT</Link>
+                <Link to="/places/newlisting" class="px-2">CREATE A NEW LISTING</Link>
                 {/* <Link to="/places/builders"><div>BUILDERS</div></Link> */}
                 {/* <Link to="/places/projects"><div>PROJECTS</div></Link> */}
                 {/* <Link to="/places/listings"><div>LISTINGS</div></Link> */}
