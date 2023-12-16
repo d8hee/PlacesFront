@@ -26,7 +26,7 @@ const Projects = (props) => {
                 {search.map((project) => {
 
                     var d = new Date(project.launch)
-                    
+
                     return (
                         // Project cards
                         <li key={project.id} class="max-w-screen-sm text-left ">

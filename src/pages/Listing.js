@@ -34,12 +34,23 @@ const Listing = (props) => {
         navigate("/")
     }
 
+    console.log(listing.sold)
+
+    const status = () => {
+        let soldStatus = listing.sold
+        if(soldStatus = null ){
+            return(<h4 class="text-red font-semibold">SOLD</h4>)
+        } else{
+            return(<h4 class="text-emerald-600 font-semibold">Available</h4>)
+        }
+    }
+
     return (
         <div >
             <div class="flex flex-col gap-8 items-center">
                 <h1 class="font-Inter text-5xl pt-10">{listing.modelName}</h1>
                 <img src={listing.image} class="w-96"></img>
-
+                {status()}
                 <h4>Beds: {listing.bedrooms}</h4>
                 <h4>Baths: {listing.washrooms}</h4>
                 <h4>Parking spaces: {listing.parking}</h4>
