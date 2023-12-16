@@ -10,8 +10,6 @@ const Projects = (props) => {
         setSearch(filteredProjects)
     }
 
-    // return props.projects ? loaded() : loading
-
     return (
         <div>
             {/* search component */}
@@ -26,14 +24,17 @@ const Projects = (props) => {
 
             <ul class="flex flex-col gap-8 items-center">
                 {search.map((project) => {
+
+                    var d = new Date(project.launch)
+                    
                     return (
                         // Project cards
                         <li key={project.id} class="max-w-screen-sm text-left ">
                             <div>
-                                <Link to={`/places/project/${project.id}/`}>
+                                <Link to={`/project/${project.id}/`}>
                                     <img src={project.image} alt="pre-construction property" class="bg-cover border rounded-2xl"></img>
                                     <h1 class="font-Inter">{project.name}</h1>
-                                    <h3>Sales Start: {project.launch}</h3>
+                                    <h3>Sales Start: {d.toDateString()}</h3>
                                     <h3>{project.city}</h3>
                                 </Link>
                             </div>

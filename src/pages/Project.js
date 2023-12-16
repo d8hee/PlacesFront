@@ -8,8 +8,6 @@ const Project = (props) => {
     const projects = props.projects;
     const project = projects.find((p) => String(p.id) === id)
 
-    // edit project form to show on this page 
-
     return (
         <div>
             <div>
@@ -23,12 +21,12 @@ const Project = (props) => {
 
                 <button
                     class="m-5 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                    <Link to={`/places/projects/${id}/edit/`}>Edit Project</Link>
+                    <Link to={`/project/${id}/edit/`}>Edit Project</Link>
                 </button>
 
                 <button
                     class="m-5 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                    <Link to="/places/newlisting">Create a New Listing</Link>
+                    <Link to="/newlisting">Create a New Listing</Link>
                 </button>
 
                 <hr class="w-48 h-1 mx-auto my-4 bg-gray-300 border-0 rounded md:my-10 dark:bg-gray-700"></hr>
@@ -44,7 +42,7 @@ const Project = (props) => {
                             <div key={listing.id}
                                 class="max-w-screen-md text-left"
                             >
-                                <Link to={`/places/listings/${listing.id}`}>
+                                <Link to={`/listing/${listing.id}`}>
                                     <img src={listing.image} alt="Listing" class="w-96 border rounded-2xl"></img>
                                     <h4 class="font-Inter">{listing.modelName}</h4>
                                     <h4>Beds: {listing.bedrooms}</h4>
@@ -55,7 +53,8 @@ const Project = (props) => {
                     }
                 })}
             </div>
-            <Link to="/places">Back Home</Link>
+
+            <Link to="/">Back Home</Link>
 
         </div>
     )
