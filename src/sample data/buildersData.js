@@ -1,3 +1,5 @@
+// sample data for local app
+
 const buildersData = [
     {
         username: 'builder1',
