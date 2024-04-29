@@ -13,10 +13,16 @@ import Projects from './Projects';
 import EditListing from './EditListing';
 import EditProject from './EditProject';
 
+import buildersData from '../sample data/buildersData'
+import listingsData from '../sample data/listingsData';
+import projectsData from '../sample data/projectsData'
+
 // api URL outside component so that it does not redeclared w each re-render
 const URL = "https://placesappbackend-12a451d9f048.herokuapp.com/places/"
 
 const Main = () => {
+const [localDev, setLocalDev] = useState(true)
+
   // State for data 
   const [builders, setBuilders] = useState()
   const [projects, setProjects] = useState()
@@ -24,19 +30,32 @@ const Main = () => {
 
   // Functions 
   const getBuilders = async () => {
-    const response = await fetch(URL + "builders")
-    const data = await response.json()
-    setBuilders(data)
+    if(localDev){
+      setBuilders(buildersData)
+    } else{
+      const response = await fetch(URL + "builders")
+      const data = await response.json()
+      setBuilders(data)
+    }
   }
   const getProjects = async () => {
-    const response = await fetch(URL + "projects")
-    const data = await response.json()
-    setProjects(data)
+    if(localDev){
+      setProjects(projectsData)
+    } else{
+      const response = await fetch(URL + "projects")
+      const data = await response.json()
+      setProjects(data)
+    }
   }
+
   const getListings = async () => {
-    const response = await fetch(URL + "listings")
-    const data = await response.json()
-    setListings(data)
+    if(localDev){
+      setListings(listingsData)
+    } else{
+      const response = await fetch(URL + "listings")
+      const data = await response.json()
+      setListings(data)
+    }
   }
 
   // function to create new project
